@@ -1,0 +1,11 @@
+staging_project_id = "qwiklabs-gcp-02-bd7da31f7909"
+prod_project_id = "qwiklabs-gcp-03-aac323e581e2"
+cicd_runner_project_id = "qwiklabs-gcp-03-aac323e581e2"
+region = "us-central1"
+repository_name = "ContentCortex-agent"
+repository_owner = "vighneshanap"
+host_connection_name = "git-ContentCortex-agent"
+create_cb_connection = true
+create_repository = false
+github_app_installation_id = "86246977"
+github_pat_secret_id = "git-ContentCortex-agent-github-oauthtoken-380051"
