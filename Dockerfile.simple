@@ -1,0 +1,26 @@
+FROM python:3.11-slim
+
+# Install uv package manager
+RUN pip install --no-cache-dir uv==0.6.12
+
+# Set working directory
+WORKDIR /code
+
+# Copy Python requirements and dependencies
+COPY ./pyproject.toml ./README.md ./uv.lock* ./
+
+# Copy application source
+COPY ./app ./app
+
+# Install Python dependencies
+RUN uv sync --frozen
+
+# Expose port
+EXPOSE 8080
+
+# Set environment variables
+ENV HOST=0.0.0.0
+ENV PORT=8080
+
+# Run the application
+CMD ["uv", "run", "python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
