@@ -214,6 +214,21 @@ class Feedback(BaseModel):
     log_type: Literal["feedback"] = "feedback"
 
 
+@app.get("/api/health")
+async def health_check() -> dict[str, str]:
+    """Health check endpoint for monitoring and load balancing.
+    
+    Returns:
+        JSON response with service status and version.
+    """
+    return {
+        "status": "healthy",
+        "service": "ContentCortex Agent",
+        "version": "1.1.0",
+        "environment": "staging"
+    }
+
+
 @app.post("/feedback")
 def collect_feedback(feedback: Feedback) -> dict[str, str]:
     """Collect and log feedback.
