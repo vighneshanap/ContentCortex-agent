@@ -1,0 +1,13 @@
+name: contentcortex-staging-trigger
+description: "Automated CI/CD trigger for ContentCortex Agent staging environment"
+github:
+  owner: vighneshanap
+  name: ContentCortex-agent
+  push:
+    branch: ^main$
+filename: .cloudbuild/staging.yaml
+substitutions:
+  _STAGING_PROJECT_ID: qwiklabs-gcp-02-bd7da31f7909
+  _REGION: us-central1
+  _ARTIFACT_REGISTRY_REPO_NAME: contentcortex-agent-repo
+  _CONTAINER_NAME: contentcortex-agent
